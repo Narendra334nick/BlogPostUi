@@ -41,8 +41,8 @@ export class Fourth extends React.Component {
     
        clickHandle=(e)=>{
            console.log(e.target.id);
-           const item = e.target.id;
-           fetch("http://shielded-wave-97574.herokuapp.com/deleteBlop/"+item,{
+           const id = e.target.id;
+           fetch("http://shielded-wave-97574.herokuapp.com/blogDelete/"+id,{
             method: 'DELETE',
             headers: {
               'Content-Type': 'application/json',
