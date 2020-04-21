@@ -9,7 +9,7 @@ export class Fourth extends React.Component {
         };
     }
     componentDidMount(){
-        fetch("http://shielded-wave-97574.herokuapp.com",
+        fetch("https://shielded-wave-97574.herokuapp.com",
         {
             method: 'GET',
             headers: {
@@ -42,7 +42,7 @@ export class Fourth extends React.Component {
        clickHandle=(e)=>{
            console.log(e.target.id);
            const id = e.target.id;
-           fetch("http://shielded-wave-97574.herokuapp.com/blogDelete/"+id,{
+           fetch("https://shielded-wave-97574.herokuapp.com/blogDelete/"+id,{
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
