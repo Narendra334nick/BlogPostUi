@@ -43,7 +43,7 @@ export class Fourth extends React.Component {
            console.log(e.target.id);
            const id = e.target.id;
            fetch("http://shielded-wave-97574.herokuapp.com/blogDelete/"+id,{
-            method: 'DELETE',
+            method: 'POST',
             headers: {
               'Content-Type': 'application/json',
             }   
