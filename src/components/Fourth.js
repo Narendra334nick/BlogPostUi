@@ -9,7 +9,7 @@ export class Fourth extends React.Component {
         };
     }
     componentDidMount(){
-        fetch("http://shielded-wave-97574.herokuapp.com/",
+        fetch("http://shielded-wave-97574.herokuapp.com",
         {
             method: 'GET',
             headers: {
@@ -39,16 +39,20 @@ export class Fourth extends React.Component {
     }
 
     
-       deleteData(item) {
-            fetch("http://localhost:5000/blogDelete" + '/' + item, {
-              method: 'delete'
-            }).then(response =>
-              response.json().then(json => {
-                return json;
-              })
-            );
-          }
-   
+       clickHandle=(e)=>{
+           console.log(e.target.id);
+           const item = e.target.id;
+           fetch("http://shielded-wave-97574.herokuapp.com/deleteBlop/"+item,{
+            method: 'DELETE',
+            headers: {
+              'Content-Type': 'application/json',
+            }   
+        }).then(response =>
+            response.json().then(json => {
+              return json;
+            })
+          );
+        }
 
     render() {
             const { error, isLoaded, items } = this.state;
@@ -61,7 +65,7 @@ export class Fourth extends React.Component {
                     <ul type="none">
                     {items.map(item => (
                         <li key={item._id}>
-                            {item.name} : {item.blog} <button onClick={()=>this.deleteData(`${item._id}`)}>Delete</button>
+                            {item.name} : {item.blog} <button id={item._id} onClick={this.clickHandle}>Delete</button>
                         </li>
                     ))}
                     </ul>
