@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React from 'react'
+import '../components/Fourth.css';
 
 export class Fourth extends React.Component {
     constructor(props){
@@ -9,7 +10,7 @@ export class Fourth extends React.Component {
         };
     }
     componentDidMount(){
-        fetch("https://shielded-wave-97574.herokuapp.com",
+        fetch("https://blogpost-ux.herokuapp.com/",
         {
             method: 'GET',
             headers: {
@@ -21,7 +22,7 @@ export class Fourth extends React.Component {
         .then(
             
             (result) => {
-                console.log(result);
+                
                 this.setState({
                     isLoaded:true,
                     items : result.BlogList
@@ -42,7 +43,7 @@ export class Fourth extends React.Component {
        clickHandle=(e)=>{
            console.log(e.target.id);
            const id = e.target.id;
-           fetch("https://shielded-wave-97574.herokuapp.com/blogDelete/"+id,{
+           fetch("https://blogpost-ux.herokuapp.com/blogDelete/"+id,{
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -65,7 +66,12 @@ export class Fourth extends React.Component {
                     <ul type="none">
                     {items.map(item => (
                         <li key={item._id}>
-                            {item.name} : {item.blog} <button id={item._id} onClick={this.clickHandle}>Delete</button>
+                            <div className="div1">
+                                <span><i>"{item.blog}" </i></span><button  className="del" id={item._id} onClick={this.clickHandle}>&#10005;</button>
+                            </div>
+
+                            
+                            <div className="div1"><span><b>~by {item.name}</b></span><span>{item.date}</span></div>
                         </li>
                     ))}
                     </ul>

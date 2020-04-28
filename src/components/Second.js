@@ -1,13 +1,13 @@
 import React from 'react';
 import '../components/Second.css';
+import {Link} from 'react-router-dom';
 
 function Second(){
     return(
         <div className="Nav">
-           <div>Home</div>
-           <div>ContactUs</div>
-           <div>About</div>
-           <div className="search"><span>&#128269;</span></div>
+           <div><Link to='/'>Home</Link></div>
+           <div><Link to='/AddBlog'>Add Thought</Link></div>
+           <div><Link to='/UpdateBlog'>Update Thought</Link></div>
         </div>
     )
 }

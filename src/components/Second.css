@@ -3,17 +3,20 @@
     display: flex;
     flex-direction: row;
     justify-content:flex-start;
+    align-items: center;
     background-color: black;
-    height:60px;
+    height:90px;
 }
 
 .Nav > div{
     margin-left: 40px;
     margin-bottom: 5px;
-    font-size: 18px;
+    font-size: 26px;
+    font-weight:200;
     color: white;
 }
 
-.search{
-    float:right;
+a{
+    color: White;
+    text-decoration:none;
 }
